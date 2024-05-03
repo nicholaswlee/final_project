@@ -2,9 +2,7 @@
 
 40 points
 
-**DUE: Friday, March 8 by 5:00pm**
-
-https://classroom.github.com/a/qeha1A1z
+**DUE: Friday, May 24 by 5:00pm**
 
 ## Introduction
 
@@ -159,7 +157,7 @@ Narrow Screens:
   have seen. (Hint: store the _latest_ timestamp or message id seen for each
   user in each channel—you don't have to store every user-to-message pair)
 - Sanitize all database inputs by
-  [passing them as arguments to a parameterized quer](https://flask.palletsprojects.com/en/2.3.x/patterns/sqlite3/#:~:text=To%20pass%20variable%20parts%20to%20the%20SQL%20statement%2C%20use%20a%20question%20mark%20in%20the%20statement%20and%20pass%20in%20the%20arguments%20as%20a%20list.%20Never%20directly%20add%20them%20to%20the%20SQL%20statement%20with%20string%20formatting%20because%20this%20makes%20it%20possible%20to%20attack%20the%20application%20using%20SQL%20Injections)
+  [passing them as arguments to a parameterized query](https://flask.palletsprojects.com/en/2.3.x/patterns/sqlite3/#:~:text=To%20pass%20variable%20parts%20to%20the%20SQL%20statement%2C%20use%20a%20question%20mark%20in%20the%20statement%20and%20pass%20in%20the%20arguments%20as%20a%20list.%20Never%20directly%20add%20them%20to%20the%20SQL%20statement%20with%20string%20formatting%20because%20this%20makes%20it%20possible%20to%20attack%20the%20application%20using%20SQL%20Injections)
 
 ### API (6 points)
 
