@@ -1,4 +1,4 @@
-import { makeRequest } from "../utils/makeRequest"
+import { makeRequest } from "../requests/makeRequest"
 import React from "react"
 
 export const useMessagesRequests = (channel, token) => {

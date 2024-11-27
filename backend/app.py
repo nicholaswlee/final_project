@@ -6,9 +6,12 @@ from flask import Flask, g, request
 from functools import wraps
 import sqlite3
 import os
+from flask_cors import CORS
+
 
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+CORS(app)
 
 def get_db():
     db = getattr(g, '_database', None)
@@ -55,6 +58,7 @@ def new_user(name=None, password=None):
 
 def get_user_from_api_token(request):
     api_key = request.headers.get('Authorization')
+    print(api_key)
     api_key = api_key.split(' ')[-1] if api_key else None
     if api_key:
         return query_db('SELECT * FROM users WHERE api_key = ?', [api_key], one=True)

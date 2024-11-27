@@ -1,36 +1,34 @@
-"use client"
-import { UserContext } from '@/app/contexts/UserContext'
-import { useRouter } from 'next/router'
-import { useChannelsRequests } from '@/app/hooks/useChannelsRequests'
+import { UserContext } from '../../contexts/UserContext'
 import React, { useState, useEffect, useContext } from 'react'
+import { useParams, useLocation, useNavigate } from 'react-router-dom'
 function ChannelsContainer() {
     // const {getChannels} = useChannelsRequests()
     const {getChannels, currentChannel, setCurrentChannel} = useContext(UserContext)
     const [channels, setChannels] = useState([])
-    const router = useRouter()
-    const { id } = router.query  // Get the channel ID from the URL
+    const { pathname } = useLocation()
+    const navigate = useNavigate();  // React Router v6
     useEffect(() => {
         const attemptToGetChannels = async () => {
             const channelsResponse = await getChannels()
-            console.log(channelsResponse)
+            let path_items = pathname.split("/")
+            let id = (path_items.length > 2 && path_items[1] == "channels") ? path_items[2] : null
             if (channelsResponse){
-                if(id){
-                    // TODO: check if the channel is in the list of channels
-                    if(channelsResponse.contains(id)){
-                        setCurrentChannel(id)
-                    }else{
-                        setCurrentChannel(null)
-                    }
+                if(id && channelsResponse.find(channel => channel.channel_id == id)){
+                    setCurrentChannel(id)
+                }else{
+                    setCurrentChannel(null)
                 }
                 setChannels(channelsResponse)
             }
         }
         attemptToGetChannels()
-    }, [])
+    }, [pathname])
 
     const handleChannelClick = (channelId) => {
         setCurrentChannel(channelId)
-        router.push(`/channels/${channelId}`)
+        if(pathname !== `/channels/${channelId}`){
+            navigate(`/channels/${channelId}`);
+        }
     }
 
     return (

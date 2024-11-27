@@ -3,7 +3,7 @@ import React, { useContext } from 'react'
 import ChannelsContainer from '../channelsContainer/ChannelsContainer'
 import MessagesContainer from '../messagesContainer/MessagesContainer'
 import RepliesContainer from '../repliesContainer/RepliesContainer'
-import { UserContext } from '@/app/contexts/UserContext'
+import { UserContext } from '../../contexts/UserContext'
 
 function BodyContainer() {
     const {user} = useContext(UserContext);

@@ -2,7 +2,7 @@ import React from 'react'
 
 function RepliesContainer() {
   return (
-    <div class="replies-container">RepliesContainer</div>
+    <div className="replies-container">RepliesContainer</div>
   )
 }
 
