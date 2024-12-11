@@ -4,7 +4,6 @@ export const useUserRequests = (token) => {
         let route = "user"
         let method = "GET"
         let body = null
-        console.log("token", givenToken)
         let { data, statusCode } = await makeRequest(route, method, body, givenToken)
         if(statusCode === 403){
             alert(data.message)
@@ -19,7 +18,7 @@ export const useUserRequests = (token) => {
         let body = { name }
         let { data, statusCode } = await makeRequest(route, method, body, givenToken)
         if(statusCode === 403){
-            alert(data.message)
+            alert("Username is already taken, please try again")
             return null
         }else{
             return data
@@ -31,7 +30,7 @@ export const useUserRequests = (token) => {
         let body = { password }
         let { data, statusCode } = await makeRequest(route, method, body, givenToken)
         if(statusCode === 403){
-            alert(data.message)
+            alert("Unable to update password")
             return null
         }else{
             return data

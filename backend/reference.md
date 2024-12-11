@@ -7,3 +7,15 @@
     - How to use multiple WITHs
 - https://www.npmjs.com/package/emoji-picker-react
     - Emoji picker
+- https://mui.com/material-ui/react-menu/
+    - React menu
+- https://mui.com/material-ui/react-popover/
+    - React popover
+- https://mui.com/material-ui/material-icons/
+    - Material icons
+- https://stackoverflow.com/questions/17056064/javascript-regex-match-all-and-replace
+    - Regex for url
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll
+    - Regex replace all.
+- https://flatuicolors.com/palette/cn
+    - Color palette

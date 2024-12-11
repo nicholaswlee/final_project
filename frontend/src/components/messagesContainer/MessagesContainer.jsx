@@ -1,11 +1,16 @@
 import React from 'react'
 import {Route, Routes} from 'react-router-dom'
+import MessagesContent from '../messagesContent/MessagesContent'
 
-function MessagesContainer() {
+function MessagesContainer({shouldHideClass}) {
   return (
     <Routes>
-      <Route path="/channels/:channelId/*" element={<div className="messages-container">Displaying channel content</div>}/>
-      <Route path="*" element={<div className="messages-container">Select a channel to begin</div>}/>
+      <Route path="/channels/:channelId/*" element={
+        <MessagesContent shouldHideClass={shouldHideClass}/>}/>
+      <Route path="*" element={<div className={`messages-container ${shouldHideClass}`}
+        ><div className="empty-container" >
+          Select a channel to begin
+        </div></div>}/>
     </Routes>
   )
 }

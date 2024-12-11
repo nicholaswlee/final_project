@@ -21,7 +21,9 @@ export const useChannelsRequests = () => {
         let body = { name }
         let { data, statusCode } = await makeRequest(route, method, body, apiToken)
         if(statusCode === 403){
-            alert(data.message)
+            alert("There was an error creating the channel")
+        }else if(statusCode === 409){
+            alert("Channel already exists")
         }else{
             return data
         }

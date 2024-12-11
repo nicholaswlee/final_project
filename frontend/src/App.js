@@ -9,7 +9,7 @@ function App() {
     <Router>
 <UserProvider>
     <div className="page">
-      <Header/>
+    <Header/>
       <BodyContainer/>
     </div>
     </UserProvider>
