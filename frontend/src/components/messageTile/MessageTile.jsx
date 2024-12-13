@@ -50,10 +50,8 @@ function MessageTile({message, handleOpenReplies, postReaction, deleteReaction }
     }
     
     const getImages = (text) => {
-      console.log(text)
       const images = [...text.matchAll(/http.+?(jpe?g|gif|png)/ig)].map((match) => match[0])
   
-      console.log(images)
       return images.map((image, i) => {
         return <img key={i} src={image} alt="message image" className="message-image"/>
       })

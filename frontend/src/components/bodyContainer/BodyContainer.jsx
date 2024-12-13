@@ -26,9 +26,6 @@ function BodyContainer() {
         }
     }, [pathname])
 
-    useEffect(() => {
-        console.log(shouldAddHide(CHANNEL))
-    }, [currentScreen])
     const shouldAddHide = (screen) => {
         return currentScreen !== screen ? "hide-on-small" : ""
     }
