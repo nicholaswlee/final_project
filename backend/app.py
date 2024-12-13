@@ -24,7 +24,7 @@ def get_db():
 def init_db():
     with app.app_context():
         db = get_db()
-        with app.open_resource('db/create_tables.sql', mode='r') as f:
+        with app.open_resource('db/20241213_create_tables.sql', mode='r') as f:
             db.cursor().executescript(f.read())
         db.commit()
 
@@ -422,7 +422,6 @@ def delete_emoji_to_message(channel_id, message_id):
                 )
     return {"message": "Reaction was deleted"}, 200
 
-# TODO: Figure out if this should or shouldnt be commented
 if __name__ == "__main__":
     if not os.path.exists('db/belay.sqlite3'):
         init_db()
