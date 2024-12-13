@@ -17,18 +17,13 @@ function BodyContainer() {
     const [currentScreen, setCurrentScreen] = useState(CHANNEL)
     useEffect(() => {
         const path_items = pathname.split("/")
-        console.log("path_items", path_items)
         if(path_items.find(item => item === "messages")){
-            console.log("setting to replies")
             setCurrentScreen(REPLIES)
         }else if(path_items.find(item => item === "channels")){
-            console.log("setting to messages")
             setCurrentScreen(MESSAGES)
         }else{
-            console.log("setting to channels")
             setCurrentScreen(CHANNEL)
         }
-        console.log("currentScreen", currentScreen)
     }, [pathname])
 
     useEffect(() => {

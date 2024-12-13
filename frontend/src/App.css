@@ -30,7 +30,6 @@ body {
 }
 
 * {
-  /* box-sizing: border-box; */
   padding: 0;
   margin: 0;
 }
@@ -126,14 +125,12 @@ a {
   flex-direction: column;
   justify-content: space-between;
   max-height: 100%;
-  /* @media (max-width: 768px) {
-    display: none;
-  } */
 }
 
 .message-tile{
   border-bottom: 0.5px solid #171717;
   padding: 20px 20px 0px 20px;
+  margin: 0px !important;
 }
 
 
@@ -178,7 +175,7 @@ a {
 
 .messages{
   overflow: scroll;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   max-height: 100%;
   /* overflow-y: scroll; */
   /* max-height: 75vh;
@@ -226,6 +223,7 @@ a {
 
 .unread-count {
   background: white;
+  color: black;
   border-radius: 5px;
   padding: 0px 5px;
   margin-left: 5px;

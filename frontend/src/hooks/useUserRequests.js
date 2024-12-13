@@ -6,7 +6,6 @@ export const useUserRequests = (token) => {
         let body = null
         let { data, statusCode } = await makeRequest(route, method, body, givenToken)
         if(statusCode === 403){
-            alert(data.message)
             return null
         }else{
             return data

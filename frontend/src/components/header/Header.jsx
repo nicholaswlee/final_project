@@ -3,10 +3,12 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import React, {useContext, useState} from 'react'
 import { UserContext } from '../../contexts/UserContext';
 import EditProfileModal from '../editProfileModal/EditProfileModal';
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
   const [anchorEl, setAnchorEl] = useState(null)
   const [isEditOpen, setIsEditOpen] = useState(false)
+  const navigate = useNavigate()
   const open = Boolean(anchorEl)
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget)
@@ -15,6 +17,7 @@ function Header() {
   const handleLogout = () => {
     setApiToken(null)
     setAnchorEl(null)
+    navigate("/");
   }
 
   const handleEditProfile = () => {

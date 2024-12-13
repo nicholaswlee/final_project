@@ -27,6 +27,7 @@ function ChannelsContainer({shouldHideClass}) {
                 }else{
                     setCurrentChannel(null)
                 }
+                console.log(channelsResponse)
                 setChannels(channelsResponse)
             }
         }

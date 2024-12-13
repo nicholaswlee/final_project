@@ -113,9 +113,11 @@ def signup():
     users = query_db('SELECT id FROM users')
     # Add last seen entry as current time for all messages in this channel
     channels = query_db('SELECT id FROM channels')
+    if not channels:
+        channels = []
     for channel in channels: 
         query_db('INSERT INTO user_channel_seen (user_id, channel_id, last_seen)' + 
-                 'values (?, ?, ?)', (channel["id"], user['id'], 0))
+                 'values (?, ?, ?)', (user["id"], channel['id'], 0))
     return {"api_key": api_key, "user_id": user_id, "name": user_name}, 200
 
 @app.route("/api/user", methods=['GET'])
@@ -215,7 +217,7 @@ def create_channel():
     # Add last seen entry as current time for all messages in this channel
     for user in users: 
         query_db('INSERT INTO user_channel_seen (user_id, channel_id, last_seen)' + 
-                 'values (?, ?, ?)', (channel_id, user['id'], current_time))
+                 'values (?, ?, ?)', (user['id'], channel['id'], current_time))
     return {"channel_id": channel_id}, 200
 
 # TODO: Support emojis
